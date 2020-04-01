@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Android_1.3</string>
+    <string name="description">Comprehensive health monitoring application.\nDesigned by Victor.</string>
+    <string name="top_pressure">Enter top pressure</string>
+    <string name="lower_pressure">Enter lower pressure</string>
+    <string name="tachycardia">Check tachycardia</string>
+    <string name="pulse">Enter pulse</string>
+    <string name="weight">Enter weight</string>
+    <string name="number_of_steps">Enter number of steps</string>
+    <string name="date_time">Enter date and time</string>
+    <string name="name">Enter your name</string>
+    <string name="age">Enter your age</string>
+</resources>
