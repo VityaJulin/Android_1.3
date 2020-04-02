@@ -4,73 +4,157 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/std_margin"
+    android:layout_marginTop="8dp"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/main_logo"
-        android:layout_width="0dp"
-        android:layout_height="150dp"
-        android:src="@drawable/ic_report"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintEnd_toStartOf="@+id/description"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/description"
-        android:layout_width="0dp"
-        android:layout_height="150dp"
-        android:text="@string/description"
-        android:textSize="16sp"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/main_logo"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/enter_name"
-        android:layout_marginTop="@dimen/std_margin"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/start_card"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/name"
-        android:textSize="16sp"
-        android:textAlignment="center"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        app:cardElevation="0dp"
+        app:layout_constraintBottom_toTopOf="@id/start_card_2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/main_logo" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_weight="5"
+        app:strokeColor="@color/stroke_color"
+        app:strokeWidth="2dp">
 
-    <EditText
-        android:id="@+id/enter_age"
-        android:layout_marginTop="@dimen/std_margin"
+        <!-- Image, title, secondary and enter text and saveBtn-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!-- Image, title and secondary-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="134dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/description"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/ic_doctor_2" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/app_name"
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        android:layout_marginBottom="16dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/description"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        android:textColor="?android:attr/textColorSecondary" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <!-- Enter text and saveBtn-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/enterNameTxt"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/name"
+                app:helperText="@string/name_helper"
+                app:helperTextEnabled="true"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/enterAgeTxt"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/age"
+                app:helperText="@string/age_helper"
+                app:helperTextEnabled="true"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:id="@+id/saveBtn"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:text="@string/saveBtn" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Navigation buttons -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/start_card_2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/age"
-        android:textSize="16sp"
-        android:textAlignment="center"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:layout_marginBottom="16dp"
+        app:cardElevation="0dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/enter_name" />
+        app:layout_constraintTop_toBottomOf="@id/start_card"
+        app:layout_constraintVertical_weight="1"
+        app:strokeColor="@color/stroke_color"
+        app:strokeWidth="2dp">
 
-    <ImageButton
-        android:id="@+id/go_pulse"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/ic_thermometer"
-        app:layout_constraintEnd_toStartOf="@id/go_pressure"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="horizontal">
 
-    <ImageButton
-        android:id="@+id/go_pressure"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/ic_cardiogram"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/go_pulse" />
+            <Button
+                android:id="@+id/goLifeIndicatorsBtn"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="114dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/life_indicators_Btn"
+                android:layout_alignParentEnd="true"/>
+            <Button
+                android:id="@+id/goMedicalIndicatorsBtn"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="114dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/medical_indicators_Btn"
+                android:layout_alignParentStart="true"/>
 
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

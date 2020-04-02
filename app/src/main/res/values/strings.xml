@@ -1,13 +1,24 @@
 <resources>
     <string name="app_name">Android_1.3</string>
     <string name="description">Comprehensive health monitoring application.\nDesigned by Victor.</string>
-    <string name="top_pressure">Enter top pressure</string>
-    <string name="lower_pressure">Enter lower pressure</string>
-    <string name="tachycardia">Check tachycardia</string>
-    <string name="pulse">Enter pulse</string>
-    <string name="weight">Enter weight</string>
-    <string name="number_of_steps">Enter number of steps</string>
+    <string name="top_pressure">Top pressure</string>
+    <string name="top_pressure_helper">Enter your top pressure</string>
+    <string name="lower_pressure">Lower pressure</string>
+    <string name="lowe_pressure_helper">Enter your lower pressure</string>
+    <string name="tachycardia">Tachycardia</string>
+    <string name="tachycardia_helper">Check if there is tachycardia</string>
+    <string name="pulse">Pulse</string>
+    <string name="pulse_helper">Enter your pulse</string>
+    <string name="weight">Weight</string>
+    <string name="weight_helper">Enter your weight</string>
+    <string name="number_of_steps">Steps</string>
+    <string name="number_of_steps_helper">Enter number of steps</string>
     <string name="date_time">Enter date and time</string>
-    <string name="name">Enter your name</string>
-    <string name="age">Enter your age</string>
+    <string name="name">Name</string>
+    <string name="name_helper">Enter your name and surname</string>
+    <string name="age">Age</string>
+    <string name="age_helper">Enter your age </string>
+    <string name="life_indicators_Btn">Life indicators</string>
+    <string name="medical_indicators_Btn">Medical indicators</string>
+    <string name="saveBtn">Save data</string>
 </resources>
