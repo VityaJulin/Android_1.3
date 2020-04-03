@@ -9,8 +9,12 @@
         android:roundIcon="@mipmap/ic_app_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MedicalIndicatorsActivity"></activity>
-        <activity android:name=".LifeIndicatorsActivity" />
+        <activity android:name=".MedicalIndicatorsActivity">
+
+        </activity>
+        <activity android:name=".LifeIndicatorsActivity">
+
+        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
