@@ -35,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String name = nameEdx.getEditText().toString();
                 String age = ageEdx.getEditText().toString();
-                if (name.equals("") || name.matches("\\d+") || age.matches("\\D+")) {
+                if (name.equals("") || name.matches("\\d+")
+                        || age.matches("\\D+") || age.equals("")) {
                     Toast.makeText(MainActivity.this, R.string.error_input_main, Toast.LENGTH_LONG).show();
                 } else {
                     Patient patient = new Patient(name, Integer.valueOf(age));

@@ -35,7 +35,8 @@ public class LifeIndicatorsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String weight = weightEtx.getEditText().toString();
                 String steps = stepsEtx.getEditText().toString();
-                if (weight.matches("\\D+") || steps.matches("\\D+")) {
+                if (weight.equals("") || weight.matches("\\D+")
+                        || steps.matches("\\D+") || steps.equals("")) {
                     Toast.makeText(LifeIndicatorsActivity.this, R.string.error_input_life,
                             Toast.LENGTH_LONG).show();
                 } else {

@@ -23,7 +23,7 @@ public class MedicalIndicatorsActivity extends AppCompatActivity {
     private Button goMainBtn;
     private Button saveMedicBtn;
     private CheckBox tachycardiaChk;
-    private Date enterDate ;
+    private Date enterDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +45,8 @@ public class MedicalIndicatorsActivity extends AppCompatActivity {
                 String lowPressure = lowPressureEdx.getEditText().toString();
                 Boolean tachycardia = tachycardiaChk.isChecked();
                 enterDate = new Date();
-                if (topPressure.matches("\\D+") || lowPressure.matches("\\D+")) {
+                if (topPressure.equals("") || topPressure.matches("\\D+")
+                        || lowPressure.matches("\\D+") || lowPressure.equals("")) {
                     Toast.makeText(MedicalIndicatorsActivity.this, R.string.error_input_medic, Toast.LENGTH_LONG).show();
                 } else {
                     MedicalIndicators medicalIndicators = new MedicalIndicators(Integer.valueOf(topPressure),
