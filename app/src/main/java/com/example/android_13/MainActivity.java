@@ -40,9 +40,9 @@ public class MainActivity extends AppCompatActivity {
                 //issue
                 nameEdx.setErrorEnabled(true);
                 ageEdx.setErrorEnabled(true);
-                if (name.equals("") || name.matches("\\d+")) {
+                if (name.equals("") || name.contains("\\d+")) {
                     ageEdx.setError("");
-                } else if (age.matches("\\D+") || age.equals("")) {
+                } else if (age.equals("")) {
                     nameEdx.setError("");
                 } else {
                     try {
