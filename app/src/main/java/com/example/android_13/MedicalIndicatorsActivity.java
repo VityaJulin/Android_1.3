@@ -41,16 +41,21 @@ public class MedicalIndicatorsActivity extends AppCompatActivity {
         saveMedicBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String topPressure = topPressureEdx.getEditText().toString();
-                String lowPressure = lowPressureEdx.getEditText().toString();
+                String topPressure = topPressureEdx.getEditText().getText().toString();
+                String lowPressure = lowPressureEdx.getEditText().getText().toString();
                 Boolean tachycardia = tachycardiaChk.isChecked();
                 enterDate = new Date();
                 if (topPressure.equals("") || topPressure.matches("\\D+")
                         || lowPressure.matches("\\D+") || lowPressure.equals("")) {
                     Toast.makeText(MedicalIndicatorsActivity.this, R.string.error_input_medic, Toast.LENGTH_LONG).show();
                 } else {
-                    MedicalIndicators medicalIndicators = new MedicalIndicators(Integer.valueOf(topPressure),
-                            Integer.valueOf(lowPressure), tachycardia, enterDate);
+                    try {
+                        MedicalIndicators medicalIndicators = new MedicalIndicators(Integer.parseInt(topPressure),
+                                Integer.parseInt(lowPressure), tachycardia, enterDate);
+                        Toast.makeText(MedicalIndicatorsActivity.this, R.string.add_success, Toast.LENGTH_LONG).show();
+                    } catch (Exception e) {
+                        Toast.makeText(MedicalIndicatorsActivity.this, R.string.error_input_medic, Toast.LENGTH_LONG).show();
+                    }
                 }
             }
         });

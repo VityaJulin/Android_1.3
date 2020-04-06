@@ -6,11 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+
 
 public class MainActivity extends AppCompatActivity {
     private TextInputLayout nameEdx;
@@ -33,14 +32,27 @@ public class MainActivity extends AppCompatActivity {
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = nameEdx.getEditText().toString();
-                String age = ageEdx.getEditText().toString();
-                if (name.equals("") || name.matches("\\d+")
-                        || age.matches("\\D+") || age.equals("")) {
-                    Toast.makeText(MainActivity.this, R.string.error_input_main, Toast.LENGTH_LONG).show();
+                String name = nameEdx.getEditText().getText().toString();
+                String age = ageEdx.getEditText().getText().toString();
+                ageEdx.setError(getString(R.string.error_input_age));
+                nameEdx.setError(getString(R.string.error_input_name));
+
+                //issue
+                nameEdx.setErrorEnabled(true);
+                ageEdx.setErrorEnabled(true);
+                if (name.equals("") || name.matches("\\d+")) {
+                    ageEdx.setError("");
+                } else if (age.matches("\\D+") || age.equals("")) {
+                    nameEdx.setError("");
                 } else {
-                    Patient patient = new Patient(name, Integer.valueOf(age));
-                    Toast.makeText(MainActivity.this, R.string.add_success, Toast.LENGTH_LONG).show();
+                    try {
+                        Patient patient = new Patient(name, Integer.parseInt(age));
+                        Toast.makeText(MainActivity.this, R.string.add_success, Toast.LENGTH_LONG).show();
+                        nameEdx.setError("");
+                        ageEdx.setError("");
+                    } catch (Exception e) {
+
+                    }
                 }
             }
         });

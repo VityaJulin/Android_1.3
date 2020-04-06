@@ -21,7 +21,8 @@
     <string name="life_indicators_Btn">Life indicators</string>
     <string name="medical_indicators_Btn">Medical indicators</string>
     <string name="saveBtn">Save data</string>
-    <string name="error_input_main">Age is an integer\nThe name does not contain numbers</string>
+    <string name="error_input_age">Age is an integer</string>
+    <string name="error_input_name">The name does not contain numbers</string>
     <string name="go_main_btn">Main page</string>
     <string name="error_input_life">Weight is an integer\nSteps is an integer</string>
     <string name="error_input_medic">Top pressure is an integer\nLower pressure is an integer</string>

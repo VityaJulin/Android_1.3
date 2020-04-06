@@ -33,15 +33,21 @@ public class LifeIndicatorsActivity extends AppCompatActivity {
         saveLifeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String weight = weightEtx.getEditText().toString();
-                String steps = stepsEtx.getEditText().toString();
+                String weight = weightEtx.getEditText().getText().toString();
+                String steps = stepsEtx.getEditText().getText().toString();
                 if (weight.equals("") || weight.matches("\\D+")
                         || steps.matches("\\D+") || steps.equals("")) {
                     Toast.makeText(LifeIndicatorsActivity.this, R.string.error_input_life,
                             Toast.LENGTH_LONG).show();
                 } else {
-                    LifeIndicators lifeIndicators = new LifeIndicators(Integer.valueOf(weight), Integer.valueOf(steps));
-                    Toast.makeText(LifeIndicatorsActivity.this, R.string.add_success, Toast.LENGTH_LONG).show();
+                    try {
+                        LifeIndicators lifeIndicators = new LifeIndicators(Integer.parseInt(weight), Integer.parseInt(steps));
+                        Toast.makeText(LifeIndicatorsActivity.this, R.string.add_success, Toast.LENGTH_LONG).show();
+                    } catch (Exception e) {
+                        Toast.makeText(LifeIndicatorsActivity.this, R.string.error_input_life,
+                                Toast.LENGTH_LONG).show();
+
+                    }
                 }
             }
         });

@@ -95,6 +95,7 @@
                 android:hint="@string/age"
                 app:helperText="@string/age_helper"
                 app:helperTextEnabled="true"
+                app:errorEnabled="true"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
