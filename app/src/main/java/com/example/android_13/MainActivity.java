@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         saveBtn = findViewById(R.id.saveBtn);
         goMedicalBtn = findViewById(R.id.goMedicalIndicatorsBtn);
         goLifeBtn = findViewById(R.id.goLifeIndicatorsBtn);
+        nameEdx.setHint("Name");
+        ageEdx.setHint("Age");
 
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,19 +46,20 @@ public class MainActivity extends AppCompatActivity {
                     ageEdx.setError(getString(R.string.error_input_age));
                 }
 
-                if (!age.equals("") && !name.equals("") && !containsDigit(name) && !containsNotDigit(age)) {
+                if (!age.isEmpty() && !name.isEmpty() && !containsDigit(name) && !containsNotDigit(age)) {
                     try {
                         Patient patient = new Patient(name, Integer.parseInt(age));
+                        nameEdx.getEditText().setText(null);
+                        ageEdx.getEditText().setText(null);
                         Toast.makeText(MainActivity.this, R.string.add_success, Toast.LENGTH_LONG).show();
                     } catch (Exception e) {
                         ageEdx.setError(getString(R.string.error_input_age));
                     }
                 }
-                        ageEdx.invalidate();
             }
 
 
-            public final boolean containsDigit(String s) {
+            private boolean containsDigit(String s) {
                 boolean containsDigit = false;
                 if (s != null && !s.isEmpty()) {
                     for (char c : s.toCharArray()) {
@@ -68,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                 return containsDigit;
             }
 
-            public final boolean containsNotDigit(String s) {
+            private boolean containsNotDigit(String s) {
                 boolean containsNotDigit = false;
                 if (s != null && !s.isEmpty()) {
                     for (char c : s.toCharArray()) {
