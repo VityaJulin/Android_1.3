@@ -34,26 +34,50 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String name = nameEdx.getEditText().getText().toString();
                 String age = ageEdx.getEditText().getText().toString();
-                ageEdx.setError(getString(R.string.error_input_age));
-                nameEdx.setError(getString(R.string.error_input_name));
+                nameEdx.setError(null);
+                ageEdx.setError(null);
 
-                //issue
-                nameEdx.setErrorEnabled(true);
-                ageEdx.setErrorEnabled(true);
-                if (name.equals("") || name.contains("\\d+")) {
-                    ageEdx.setError("");
-                } else if (age.equals("")) {
-                    nameEdx.setError("");
-                } else {
+                if (name.isEmpty() || containsDigit(name)) {
+                    nameEdx.setError(getString(R.string.error_input_name));
+                }
+                if (age.isEmpty() || containsNotDigit(age)) {
+                    ageEdx.setError(getString(R.string.error_input_age));
+                }
+
+                if (!age.equals("") && !name.equals("") && !containsDigit(name) && !containsNotDigit(age)) {
                     try {
                         Patient patient = new Patient(name, Integer.parseInt(age));
                         Toast.makeText(MainActivity.this, R.string.add_success, Toast.LENGTH_LONG).show();
-                        nameEdx.setError("");
-                        ageEdx.setError("");
                     } catch (Exception e) {
-
+                        ageEdx.setError(getString(R.string.error_input_age));
                     }
                 }
+                        ageEdx.invalidate();
+            }
+
+
+            public final boolean containsDigit(String s) {
+                boolean containsDigit = false;
+                if (s != null && !s.isEmpty()) {
+                    for (char c : s.toCharArray()) {
+                        if (containsDigit = Character.isDigit(c)) {
+                            break;
+                        }
+                    }
+                }
+                return containsDigit;
+            }
+
+            public final boolean containsNotDigit(String s) {
+                boolean containsNotDigit = false;
+                if (s != null && !s.isEmpty()) {
+                    for (char c : s.toCharArray()) {
+                        if (containsNotDigit = !Character.isDigit(c)) {
+                            break;
+                        }
+                    }
+                }
+                return containsNotDigit;
             }
         });
 
@@ -73,4 +97,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 }

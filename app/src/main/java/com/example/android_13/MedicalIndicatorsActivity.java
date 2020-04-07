@@ -45,7 +45,7 @@ public class MedicalIndicatorsActivity extends AppCompatActivity {
                 String lowPressure = lowPressureEdx.getEditText().getText().toString();
                 Boolean tachycardia = tachycardiaChk.isChecked();
                 enterDate = new Date();
-                if (topPressure.equals("") || lowPressure.equals("")) {
+                if (topPressure.isEmpty() || lowPressure.isEmpty()) {
                     Toast.makeText(MedicalIndicatorsActivity.this, R.string.error_input_medic, Toast.LENGTH_LONG).show();
                 } else {
                     try {
