@@ -42,11 +42,11 @@ public class MainActivity extends AppCompatActivity {
                 if (name.isEmpty() || containsDigit(name)) {
                     nameEdx.setError(getString(R.string.error_input_name));
                 }
-                if (age.isEmpty() || containsNotDigit(age)) {
+                if (age.isEmpty() || !containsDigit(age)) {
                     ageEdx.setError(getString(R.string.error_input_age));
                 }
 
-                if (!age.isEmpty() && !name.isEmpty() && !containsDigit(name) && !containsNotDigit(age)) {
+                if (!age.isEmpty() && !name.isEmpty() && !containsDigit(name) && containsDigit(age)) {
                     try {
                         Patient patient = new Patient(name, Integer.parseInt(age));
                         nameEdx.getEditText().setText(null);
@@ -69,18 +69,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
                 return containsDigit;
-            }
-
-            private boolean containsNotDigit(String s) {
-                boolean containsNotDigit = false;
-                if (s != null && !s.isEmpty()) {
-                    for (char c : s.toCharArray()) {
-                        if (containsNotDigit = !Character.isDigit(c)) {
-                            break;
-                        }
-                    }
-                }
-                return containsNotDigit;
             }
         });
 
